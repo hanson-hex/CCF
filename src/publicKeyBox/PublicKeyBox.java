@@ -1,27 +1,10 @@
-package main;
+package publicKeyBox;
 
-
-import java.security.PublicKey;
-
-import collideBall.CollideBall;
-import joeph.Joeph;
-//import publicKeyBox.PublicKeyBox;
-//import publicKeyBox.Teacher;
-
+import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.*;
 
-public class Main {
-	public static void main(String[] args) {
-//		CollideBall.st5art();
-//		Joeph.start();
-//		Joeph.start2();
-//		Joeph.start3();
-		PublicKeyBox.start();
-	}
-	
-}
-
-class PublicKeyBox {
+public class PublicKeyBox {
 	public static void start() {
 		Scanner input = new Scanner(System.in);
 		String[] inputStr = input.nextLine().split(" ");
@@ -45,17 +28,20 @@ class PublicKeyBox {
 		for(int i = 0; i < n; i++) {
 			keyList[i] = i + 1;
 		}
+		System.out.println("lastTime:" + lastTime);
 		while (pastTime <= lastTime) {
 			checkReturnKey(pastTime, teachers, keyList);
 			checkLenkey(pastTime, teachers, keyList);
+			System.out.println("pastTime为:" + pastTime);
+			printKey(keyList);
 			pastTime++;
 		}
-		printKey(keyList);
 	}
 	public static void printKey(int[] keyList) {
 		for (int i : keyList) {
 			System.out.print(i + " ");
 		}
+		System.out.println("");
 	}
 	public static void checkReturnKey(int pastTime, Teacher[] teachers, int[] keyList) {
 		List<Teacher> teacherList = new LinkedList<Teacher>();
@@ -108,4 +94,3 @@ class Teacher implements Comparable<Teacher> {
 		return value;
 	}
 }
-
