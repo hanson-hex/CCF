@@ -61,8 +61,9 @@ public class CollideBall {
 		}
 		for (int i = 0; i < t; i++) {
 			ballMove(l, arrBalls);
+			printBall(arrBalls);
 		}
-		printBall(arrBalls);
+//		printBall(arrBalls);
 	}
 	public static void printBall(int[][] arrBalls) {
 		for (int i = 0; i < arrBalls.length;i++) {
@@ -72,11 +73,11 @@ public class CollideBall {
 	}
 	public static void ballMove(int l, int[][] arrBalls) {
 		for (int i = 0; i < arrBalls.length;i++) {
-			checkBoundary(i, arrBalls);
 			arrBalls[i][0] = arrBalls[i][0] + arrBalls[i][1];
+			checkBoundary(i, arrBalls);
 		}
-		
 		checkCollide(l, arrBalls);
+		
 	}
 	public static void checkBoundary(int i, int[][] arrBalls) {
 		if (arrBalls[i][0] == 10) {
